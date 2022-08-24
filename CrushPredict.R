@@ -1,4 +1,4 @@
-## Spatio-temporal prediction of COVID-19 test positivity in Uppsala Län, Sweden ##
+## Spatio-temporal prediction of COVID-19 test positivity in Uppsala L?n, Sweden ##
 ## Vera van Zoest (Uppsala University), 2021 ##
 
 # set working directory
@@ -237,11 +237,11 @@ legend(x="topright", legend = c("RF", "GB", "INLA", "ARIMA", "Naive"), col=c("bl
 
 # plot observed positivity for some areas (based on expert-selected low/high pandemic effects)
 plot(data_sp$week[data_sp$sp_id==42 & data_sp$week >=47], data_sp$positivity_1w[data_sp$sp_id==42 & data_sp$week >=47], type="l", ylab="Positivity", xlab="Week", ylim=c(0,0.3), col="purple") # Gottsunda, id 42
-lines(data_sp$week[data_sp$sp_id==44 & data_sp$week >=47], data_sp$positivity_1w[data_sp$sp_id==44 & data_sp$week >=47], col="red") # Skutskär, id 44
-lines(data_sp$week[data_sp$sp_id==45 & data_sp$week >=47], data_sp$positivity_1w[data_sp$sp_id==45 & data_sp$week >=47], col="green") # Älvkarlaby, id 45
+lines(data_sp$week[data_sp$sp_id==44 & data_sp$week >=47], data_sp$positivity_1w[data_sp$sp_id==44 & data_sp$week >=47], col="red") # Skutsk?r, id 44
+lines(data_sp$week[data_sp$sp_id==45 & data_sp$week >=47], data_sp$positivity_1w[data_sp$sp_id==45 & data_sp$week >=47], col="green") # ?lvkarlaby, id 45
 lines(data_sp$week[data_sp$sp_id==12 & data_sp$week >=47], data_sp$positivity_1w[data_sp$sp_id==12 & data_sp$week >=47], col="orange") # Heby, id 12
 # selected low pandemic effect area: Heby (id 12)
-# selected high pandemic effect area: Skutskär or Älvkarleby (id 44 or 45)
+# selected high pandemic effect area: Skutsk?r or ?lvkarleby (id 44 or 45)
 
 # compare mean RMSE
 summary(rmse_df_all)
@@ -251,7 +251,7 @@ data_sp_obs <- data_sp[data_sp$week > 46,]
 
 # plot observed vs predicted positivity in Heby (low pandemic effect)
 plot(data_sp_obs$week[data_sp_obs$sp_id==12], data_sp_obs$positivity_1w[data_sp_obs$sp_id==12], type="l", 
-     ylab="PCR test positivity (%)", xlab="Week", ylim=c(0,0.3), col="darkgrey", lty=2, lwd=2, main="Heby", xaxt="n") 
+     ylab="PCR test positivity", xlab="Week", ylim=c(0,0.3), col="darkgrey", lty=2, lwd=2, main="Heby", xaxt="n") 
 axis(side=1, at=c(45,50,55,60,65,70,75,80), labels=week_list)
 lines(pred_df$predicted_week[pred_df$sp_id==12], pred_df$pred_INLA[pred_df$sp_id==12], col="orange", lwd=2)
 lines(pred_df$predicted_week[pred_df$sp_id==12], pred_df$pred_GB[pred_df$sp_id==12], col="red", lwd=2)
@@ -259,9 +259,9 @@ lines(pred_df$predicted_week[pred_df$sp_id==12], pred_df$pred_RF[pred_df$sp_id==
 lines(pred_df$predicted_week[pred_df$sp_id==12], pred_df$pred_ARIMA[pred_df$sp_id==12], col="purple", lwd=2)
 legend(x="topright", legend = c("RF", "GB", "INLA", "ARIMA", "observed"), col=c("blue", "red", "orange", "purple", "darkgrey"), lwd=2, lty=c(1,1,1,1,2))
 
-# plot observed vs predicted positivity in Skutskär (high pandemic effect)
+# plot observed vs predicted positivity in Skutsk?r (high pandemic effect)
 plot(data_sp_obs$week[data_sp_obs$sp_id==44], data_sp_obs$positivity_1w[data_sp_obs$sp_id==44], type="l", 
-     ylab="PCR test positivity (%)", xlab="Week", ylim=c(0,0.3), col="darkgrey", lty=2, lwd=2, main="Skutskär", xaxt="n") 
+     ylab="PCR test positivity", xlab="Week", ylim=c(0,0.3), col="darkgrey", lty=2, lwd=2, main="Skutsk?r", xaxt="n") 
 axis(side=1, at=c(45,50,55,60,65,70,75,80), labels=week_list)
 lines(pred_df$predicted_week[pred_df$sp_id==44], pred_df$pred_INLA[pred_df$sp_id==44], col="orange", lwd=2)
 lines(pred_df$predicted_week[pred_df$sp_id==44], pred_df$pred_GB[pred_df$sp_id==44], col="red", lwd=2)
@@ -269,9 +269,9 @@ lines(pred_df$predicted_week[pred_df$sp_id==44], pred_df$pred_RF[pred_df$sp_id==
 lines(pred_df$predicted_week[pred_df$sp_id==44], pred_df$pred_ARIMA[pred_df$sp_id==44], col="purple", lwd=2)
 legend(x="topright", legend = c("RF", "GB", "INLA", "ARIMA", "observed"), col=c("blue", "red", "orange", "purple", "darkgrey"), lwd=2, lty=c(1,1,1,1,2))
 
-# plot observed vs predicted positivity in Älvkarleby (high pandemic effect, variability in predictions ARIMA)
+# plot observed vs predicted positivity in ?lvkarleby (high pandemic effect, variability in predictions ARIMA)
 plot(data_sp_obs$week[data_sp_obs$sp_id==45], data_sp_obs$positivity_1w[data_sp_obs$sp_id==45], type="l", 
-     ylab="PCR test positivity (%)", xlab="Week", ylim=c(0,0.3), col="darkgrey", lty=2, lwd=2, main="Älvkarleby", xaxt="n") 
+     ylab="PCR test positivity", xlab="Week", ylim=c(0,0.3), col="darkgrey", lty=2, lwd=2, main="?lvkarleby", xaxt="n") 
 axis(side=1, at=c(45,50,55,60,65,70,75,80), labels=week_list)
 lines(pred_df$predicted_week[pred_df$sp_id==45], pred_df$pred_INLA[pred_df$sp_id==45], col="orange", lwd=2)
 lines(pred_df$predicted_week[pred_df$sp_id==45], pred_df$pred_GB[pred_df$sp_id==45], col="red", lwd=2)
@@ -352,3 +352,52 @@ lines(rmse_df_combi$pred_week, rmse_df_combi$rmse_naive, col="darkgrey", lwd=2, 
 legend(x="topright", legend = c("RF", "GB", "INLA", "ARIMA", "Naive", "Combi"), col=c("blue", "red", "orange", "purple", "darkgrey", "black"), lwd=2, lty=c(1,1,1,1,2,2))
 
 mean(rmse_df_combi$rmse_combi)
+
+
+# test significance of difference between RMSEs
+
+# Wilcoxon rank sum paired samples test
+# test whether models outperformed naive model
+wilcox.test(rmse_df_combi$rmse_GB, rmse_df_combi$rmse_naive, alternative="less", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_RF, rmse_df_combi$rmse_naive, alternative="less", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_INLA, rmse_df_combi$rmse_naive, alternative="less", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_ARIMA, rmse_df_combi$rmse_naive, alternative="less", paired=T) # no
+wilcox.test(rmse_df_combi$rmse_combi, rmse_df_combi$rmse_naive, alternative="less", paired=T) # yes
+# test difference between models
+wilcox.test(rmse_df_combi$rmse_combi, rmse_df_combi$rmse_GB, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_combi, rmse_df_combi$rmse_RF, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_combi, rmse_df_combi$rmse_INLA, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_combi, rmse_df_combi$rmse_ARIMA, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_ARIMA, rmse_df_combi$rmse_GB, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_ARIMA, rmse_df_combi$rmse_RF, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_ARIMA, rmse_df_combi$rmse_INLA, alternative="two.sided", paired=T) # yes
+wilcox.test(rmse_df_combi$rmse_RF, rmse_df_combi$rmse_GB, alternative="two.sided", paired=T) # no
+wilcox.test(rmse_df_combi$rmse_RF, rmse_df_combi$rmse_INLA, alternative="two.sided", paired=T) # no
+wilcox.test(rmse_df_combi$rmse_GB, rmse_df_combi$rmse_INLA, alternative="two.sided", paired=T) # no
+
+
+# test whether difference is significantly different from zero (intercept != 0) after accounting for AR1 process
+rmse_diff <- data.frame("Naive_RF"= rmse_df_combi$rmse_naive-rmse_df_combi$rmse_RF, 
+                        "Naive_GB"=rmse_df_combi$rmse_naive-rmse_df_combi$rmse_GB, 
+                        "Naive_INLA"=rmse_df_combi$rmse_naive-rmse_df_combi$rmse_INLA, 
+                        "Naive_ARIMA"=rmse_df_combi$rmse_naive-rmse_df_combi$rmse_ARIMA, 
+                        "Naive_combi"=rmse_df_combi$rmse_naive-rmse_df_combi$rmse_combi,
+                        "RF_GB"=rmse_df_combi$rmse_RF-rmse_df_combi$rmse_GB, 
+                        "RF_INLA"=rmse_df_combi$rmse_RF-rmse_df_combi$rmse_INLA, 
+                        "RF_ARIMA"=rmse_df_combi$rmse_RF-rmse_df_combi$rmse_ARIMA, 
+                        "RF_combi"=rmse_df_combi$rmse_RF-rmse_df_combi$rmse_combi,
+                        "GB_INLA"=rmse_df_combi$rmse_GB-rmse_df_combi$rmse_INLA, 
+                        "GB_ARIMA"=rmse_df_combi$rmse_GB-rmse_df_combi$rmse_ARIMA, 
+                        "GB_combi"=rmse_df_combi$rmse_GB-rmse_df_combi$rmse_ARIMA,
+                        "INLA_ARIMA"=rmse_df_combi$rmse_INLA-rmse_df_combi$rmse_ARIMA, 
+                        "INLA_combi"=rmse_df_combi$rmse_INLA-rmse_df_combi$rmse_combi,
+                        "ARIMA_combi"=rmse_df_combi$rmse_ARIMA-rmse_df_combi$rmse_combi
+                        )
+
+for (m in names(rmse_diff)) {
+  aa <- arima(rmse_diff[m], order=c(1,0,0))
+  print(m)
+  print(aa)
+  print((1-pnorm(abs(aa$coef)/sqrt(diag(aa$var.coef))))*2) # p-values
+}
+rm(aa, m)
